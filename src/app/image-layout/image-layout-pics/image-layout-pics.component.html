@@ -1,0 +1,5 @@
+<div *ngFor="let image of images">
+  <h4>{{ image.imageURL }}</h4>
+  <h5>{{ image.label }}</h5>
+  <h6>{{ image.budget | currency : "MYR" }}</h6>
+</div>

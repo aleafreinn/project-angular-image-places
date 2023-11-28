@@ -1,0 +1,42 @@
+<form [formGroup]="newImageItem" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="imageURL">Insert image URL:</label>
+    <input type="text" formControlName="imageURL" id="imageURL" />
+    <div
+      *ngIf="
+        newImageItem.controls['imageURL'].errors &&
+        (newImageItem.controls['imageURL'].dirty ||
+          newImageItem.controls['imageURL'].touched)
+      "
+    >
+      Image url is required
+    </div>
+  </div>
+  <div>
+    <label for="label">Insert label:</label>
+    <input type="text" formControlName="label" id="label" />
+    <div
+      *ngIf="
+        newImageItem.controls['label'].errors &&
+        (newImageItem.controls['label'].dirty ||
+          newImageItem.controls['label'].touched)
+      "
+    >
+      Label is required
+    </div>
+  </div>
+  <div>
+    <label for="budget">Insert budget for this place:</label>
+    <input type="number" formControlName="budget" id="budget" />
+    <div
+      *ngIf="
+        newImageItem.controls['budget'].errors &&
+        (newImageItem.controls['budget'].dirty ||
+          newImageItem.controls['budget'].touched)
+      "
+    >
+      Budget is required
+    </div>
+  </div>
+  <button type="submit" [disabled]="!newImageItem.valid">Submit!</button>
+</form>
