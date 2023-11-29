@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IimageList } from '../image-layout-interfaces';
 
 @Component({
@@ -7,9 +7,26 @@ import { IimageList } from '../image-layout-interfaces';
   styleUrls: ['./image-layout-pics.component.scss'],
 })
 export class ImageLayoutPicsComponent implements OnInit {
+  showFormCondition: string = '';
   @Input() images: IimageList[] = [];
+  @Output() editedItem = new EventEmitter<IimageList>();
+  @Output() deletedItem = new EventEmitter<IimageList>();
 
   constructor() {}
 
   ngOnInit(): void {}
+
+  setShowEditForm(image: IimageList) {
+    this.showFormCondition =
+      this.showFormCondition === image.id ? '' : image.id;
+  }
+
+  editedImage(image: IimageList) {
+    this.editedItem.emit(image);
+    this.showFormCondition = '';
+  }
+
+  itemToDelete(image: IimageList) {
+    this.deletedItem.emit(image);
+  }
 }

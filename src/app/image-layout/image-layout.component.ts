@@ -28,7 +28,23 @@ export class ImageLayoutComponent implements OnInit, OnChanges {
   }
 
   addImageHandler(item: IimageList) {
-    // this.imageLayoutService.addImageItem(item).subscribe();
+    this.imageLayoutService.addImageItem(item).subscribe((data) => {
+      this.imageList = data;
+    });
+    // console.log(this.imageList);
+    this.showForm = false;
+  }
+
+  editImageHandler(item: IimageList) {
     console.log(item);
+    this.imageLayoutService.editImageItem(item).subscribe((data) => {
+      this.imageList = data;
+    });
+  }
+
+  deleteImageHandler(item: IimageList) {
+    this.imageLayoutService.deleteImageItem(item).subscribe((data) => {
+      this.imageList = data;
+    });
   }
 }

@@ -1,5 +1,34 @@
-<div *ngFor="let image of images">
-  <h4>{{ image.imageURL }}</h4>
-  <h5>{{ image.label }}</h5>
-  <h6>{{ image.budget | currency : "MYR" }}</h6>
+<div class="parent-container">
+  <div *ngFor="let image of images" class="outer-child" tabindex="0">
+    <img
+      src="{{ image.imageURL }}"
+      alt="{{ image.imageURL }}"
+      class="bg-image"
+    />
+
+    <!-- <h4>{{ image.imageURL }}</h4> -->
+    <div class="temp-container">
+      <div class="image-details-upper">
+        <button class="btn btn-transparent" (click)="setShowEditForm(image)">
+          <i class="bi bi-pencil-fill"></i>
+        </button>
+      </div>
+      <div *ngIf="showFormCondition === image.id">
+        <aip-image-layout-form
+          [currentImage]="image"
+          (itemToSubmit)="editedImage($event)"
+        ></aip-image-layout-form>
+      </div>
+      <div class="image-details-lower">
+        <div class="image-desc">
+          <h4>{{ image.label }}</h4>
+          <h5>{{ image.budget | currency : "MYR" }}</h5>
+        </div>
+        <button class="btn btn-transparent" (click)="itemToDelete(image)">
+          <i class="bi bi-trash-fill"></i>
+        </button>
+      </div>
+    </div>
+    <!-- <hr style="background-color: black" /> -->
+  </div>
 </div>

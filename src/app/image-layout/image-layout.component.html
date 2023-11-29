@@ -1,8 +1,18 @@
-<div>
-  <aip-image-layout-pics [images]="imageList"></aip-image-layout-pics>
-  <button class="btn btn-primary" (click)="setShowForm()">add places</button>
-  <aip-image-layout-form
-    *ngIf="showForm"
-    (itemToSubmit)="addImageHandler($event)"
-  ></aip-image-layout-form>
+<div class="main-container">
+  <div class="main-wrapper">
+    <aip-image-layout-pics
+      [images]="imageList"
+      (editedItem)="editImageHandler($event)"
+      (deletedItem)="deleteImageHandler($event)"
+    ></aip-image-layout-pics>
+  </div>
+
+  <div>
+    <button class="btn btn-primary" (click)="setShowForm()">add places</button>
+
+    <aip-image-layout-form
+      *ngIf="showForm"
+      (itemToSubmit)="addImageHandler($event)"
+    ></aip-image-layout-form>
+  </div>
 </div>

@@ -9,6 +9,7 @@ import { v4 as uuid } from 'uuid';
   styleUrls: ['./image-layout-form.component.scss'],
 })
 export class ImageLayoutFormComponent implements OnInit {
+  @Input() currentImage!: IimageList;
   @Output() itemToSubmit = new EventEmitter<IimageList>();
 
   newImageItem: FormGroup = new FormGroup({
@@ -19,18 +20,25 @@ export class ImageLayoutFormComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.newImageItem.setValue({
+      imageURL: this.currentImage?.imageURL ?? '',
+      label: this.currentImage?.label ?? '',
+      budget: this.currentImage?.budget ?? '',
+    });
+  }
 
   onSubmit() {
+    // console.log(this.currentImage.id);
     const savedItem: IimageList = {
-      id: uuid(),
+      id: this.currentImage?.id ?? uuid(),
       imageURL: this.newImageItem.get('imageURL')?.value,
       label: this.newImageItem.get('label')?.value,
       budget: this.newImageItem.get('budget')?.value,
     };
-
-    this.itemToSubmit.emit(savedItem);
     console.log('item saved!', savedItem);
+    this.itemToSubmit.emit(savedItem);
+    // this.toEmit(savedItem);
     this.newImageItem.reset();
   }
 }
