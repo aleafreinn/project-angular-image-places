@@ -7,10 +7,10 @@
   flex-direction: column;
   justify-content: stretch;
   align-items: center;
-  border: 2px solid red;
+  //   border: 2px solid red;
 }
 .main-wrapper {
-  border: 3px solid grey;
+  //   border: 3px solid grey;
   height: 100%;
   width: 100%;
   flex-grow: 1;
@@ -19,7 +19,7 @@
   justify-content: stretch;
   & :first-child {
     flex-grow: 1;
-    border: 3px solid blue;
+    // border: 3px solid blue;
     display: flex;
     flex-direction: column;
     justify-content: stretch;

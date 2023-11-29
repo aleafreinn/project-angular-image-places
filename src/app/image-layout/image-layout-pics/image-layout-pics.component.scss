@@ -1,6 +1,6 @@
 .parent-container {
   flex-grow: 1;
-  border: 3px solid brown;
+  //   border: 3px solid brown;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -16,6 +16,7 @@
   overflow: hidden;
   width: 100%;
   margin: 1rem;
+  border-radius: 15px;
   transition: all 0.3s ease-in-out;
   & > img {
     height: 100%;
@@ -24,6 +25,11 @@
     position: absolute;
     z-index: -1;
   }
+  & > .temp-container {
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+  }
   &:hover {
     cursor: pointer;
     transform: translateY(-0.5rem);
@@ -31,6 +37,10 @@
   &:focus {
     width: 800%;
     cursor: pointer;
+    & > .temp-container {
+      visibility: visible;
+      opacity: 1;
+    }
   }
 }
 
