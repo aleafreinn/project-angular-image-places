@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { IimageList } from '../image-layout-interfaces';
+import { IimageList } from '../../image-layout/image-layout-interfaces';
 import { v4 as uuid } from 'uuid';
 
 @Component({

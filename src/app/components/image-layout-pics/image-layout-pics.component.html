@@ -1,9 +1,10 @@
-<div class="parent-container">
+<div class="parent-container" *ngFor="let num of imageNum">
   <div
-    *ngFor="let image of images"
+    *ngFor="let image of images | slice : num : num + 5"
     class="outer-child"
     tabindex="0"
-    [ngClass]="showFormCondition === image.id ? 'on-focus' : ''"
+    [ngClass]="showImageBox === image.id ? 'on-focus' : ''"
+    (click)="setOpenImage(image)"
   >
     <img
       src="{{ image.imageURL }}"
@@ -34,6 +35,9 @@
         </button>
       </div>
     </div>
+
+    <!-- [ngStyle]="{ width: showImageBox === image.id ? '800%' : '100%' }" -->
+    <!-- [ngClass]="showFormCondition === image.id ? 'on-focus' : ''" -->
     <!-- <hr style="background-color: black" /> -->
   </div>
 </div>

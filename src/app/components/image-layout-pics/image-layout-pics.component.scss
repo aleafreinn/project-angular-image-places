@@ -1,0 +1,130 @@
+.parent-container {
+  flex-grow: 1;
+  // border: 3px solid brown;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  min-height: 500px;
+  width: 100%;
+  // min-width: 800px;
+  position: relative;
+}
+
+.outer-child {
+  display: flex;
+  position: relative;
+  width: 100%;
+  margin: 1rem;
+  transition: all 0.3s ease-in-out;
+  overflow: visible;
+  & > img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    position: absolute;
+    z-index: -1;
+    border-radius: 15px;
+  }
+  & > .temp-container {
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+  }
+  &:hover {
+    cursor: pointer;
+    transform: translateY(-0.5rem);
+    filter: drop-shadow(0px 10px 25px #00000088);
+  }
+}
+
+.on-focus {
+  width: 1200%;
+  & > .temp-container {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.btn-transparent:hover {
+  background-color: #ffffff44;
+}
+
+i {
+  color: white;
+  filter: drop-shadow(0px 0px 20px black);
+  font-size: 25px;
+}
+
+.temp-container {
+  color: white;
+  margin: 1rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  & > .image-details-upper {
+    display: flex;
+    justify-content: flex-end;
+  }
+  & > .image-details-lower {
+    word-break: break-all;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-between;
+    filter: drop-shadow(0px 0px 10px black);
+    & > i {
+      color: white;
+    }
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .parent-container {
+    flex-grow: 1;
+    // border: 3px solid brown;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 25px;
+    width: 100%;
+    position: relative;
+    padding: 0rem 2rem;
+  }
+  .outer-child {
+    flex-grow: 1;
+    display: flex;
+    position: relative;
+    width: 100%;
+    min-height: 25px;
+    margin: 0.5rem 1rem;
+    transition: all 0.3s ease-in-out;
+    overflow: visible;
+    & > img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      position: absolute;
+      z-index: -1;
+      border-radius: 15px;
+    }
+    & > .temp-container {
+      visibility: hidden;
+      opacity: 0;
+      transition: all 0.3s ease-in-out;
+    }
+    &:hover {
+      cursor: pointer;
+      transform: translateY(-0.5rem);
+      filter: drop-shadow(0px 10px 25px #00000088);
+    }
+  }
+  .on-focus {
+    min-height: 500px;
+    // box-sizing: border-box;
+    & > .temp-container {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}

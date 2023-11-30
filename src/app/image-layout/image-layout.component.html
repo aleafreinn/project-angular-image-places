@@ -1,3 +1,8 @@
+<div *ngIf="loaderService.isLoading$ | async" class="loader-effect">
+  <div class="spinner-border text-warning" role="status">
+    <span class="sr-only"></span>
+  </div>
+</div>
 <div class="main-container">
   <div class="main-wrapper">
     <aip-image-layout-pics
@@ -7,7 +12,7 @@
     ></aip-image-layout-pics>
   </div>
 
-  <div>
+  <div class="form-add">
     <button class="btn btn-primary" (click)="setShowForm()">add places</button>
 
     <aip-image-layout-form

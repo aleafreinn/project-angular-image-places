@@ -26,3 +26,23 @@
     width: 100%;
   }
 }
+.loader-effect {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #00000044;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form-add {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 2rem;
+}

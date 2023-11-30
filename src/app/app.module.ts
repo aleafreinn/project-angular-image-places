@@ -6,11 +6,16 @@ import { AppComponent } from './app.component';
 import { ImageLayoutComponent } from './image-layout/image-layout.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ImageLayoutPicsComponent } from './image-layout/image-layout-pics/image-layout-pics.component';
-import { ImageLayoutFormComponent } from './image-layout/image-layout-form/image-layout-form.component';
+import { ImageLayoutFormComponent } from './components/image-layout-form/image-layout-form.component';
+import { ImageLayoutPicsComponent } from './components/image-layout-pics/image-layout-pics.component';
 
 @NgModule({
-  declarations: [AppComponent, ImageLayoutComponent, ImageLayoutPicsComponent, ImageLayoutFormComponent],
+  declarations: [
+    AppComponent,
+    ImageLayoutComponent,
+    ImageLayoutPicsComponent,
+    ImageLayoutFormComponent,
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -19,5 +24,6 @@ import { ImageLayoutFormComponent } from './image-layout/image-layout-form/image
   ],
   providers: [],
   bootstrap: [AppComponent],
+  schemas: [],
 })
 export class AppModule {}
