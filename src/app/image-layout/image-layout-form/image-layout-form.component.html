@@ -1,7 +1,12 @@
-<form [formGroup]="newImageItem" (ngSubmit)="onSubmit()">
-  <div>
+<form [formGroup]="newImageItem" (ngSubmit)="onSubmit()" class="form-container">
+  <div class="input-container form-group">
     <label for="imageURL">Insert image URL:</label>
-    <input type="text" formControlName="imageURL" id="imageURL" />
+    <input
+      type="text"
+      formControlName="imageURL"
+      id="imageURL"
+      class="form-control"
+    />
     <div
       *ngIf="
         newImageItem.controls['imageURL'].errors &&
@@ -12,9 +17,14 @@
       Image url is required
     </div>
   </div>
-  <div>
+  <div class="input-container form-group">
     <label for="label">Insert label:</label>
-    <input type="text" formControlName="label" id="label" />
+    <input
+      type="text"
+      formControlName="label"
+      id="label"
+      class="form-control"
+    />
     <div
       *ngIf="
         newImageItem.controls['label'].errors &&
@@ -25,9 +35,14 @@
       Label is required
     </div>
   </div>
-  <div>
+  <div class="input-container form-group">
     <label for="budget">Insert budget for this place:</label>
-    <input type="number" formControlName="budget" id="budget" />
+    <input
+      type="number"
+      formControlName="budget"
+      id="budget"
+      class="form-control"
+    />
     <div
       *ngIf="
         newImageItem.controls['budget'].errors &&
@@ -38,5 +53,11 @@
       Budget is required
     </div>
   </div>
-  <button type="submit" [disabled]="!newImageItem.valid">Submit!</button>
+  <button
+    type="submit"
+    class="btn btn-warning"
+    [disabled]="!newImageItem.valid"
+  >
+    Submit!
+  </button>
 </form>

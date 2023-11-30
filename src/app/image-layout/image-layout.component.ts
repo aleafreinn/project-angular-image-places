@@ -1,4 +1,10 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  HostBinding,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 import { ImageLayoutService } from './services/image-layout.service';
 import { IimageList } from './image-layout-interfaces';
 
@@ -22,7 +28,7 @@ export class ImageLayoutComponent implements OnInit, OnChanges {
       this.imageList = data;
     });
   }
-
+  // @HostBinding('@modalSlideInOut')
   setShowForm() {
     this.showForm = !this.showForm;
   }

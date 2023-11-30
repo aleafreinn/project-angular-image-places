@@ -1,4 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  HostBinding,
+  Input,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { IimageList } from '../image-layout-interfaces';
 
 @Component({
@@ -15,7 +22,6 @@ export class ImageLayoutPicsComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
-
   setShowEditForm(image: IimageList) {
     this.showFormCondition =
       this.showFormCondition === image.id ? '' : image.id;
